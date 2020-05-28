@@ -1,0 +1,98 @@
+//修改弹出框的背景颜色和距离上的位置
+.el-dialog__header{
+  //background-color:#304156 ;
+  padding-top:15px;
+  border-bottom:1px solid #dfe6ec;
+}
+////修改弹出框的头部字体的颜色
+//.el-dialog__title {
+//  color: #ffffff;
+//}
+//修改弹出框的内容与边距直接的距离
+.el-dialog__body {
+  padding: 20px 20px;
+}
+.form-item label{
+  padding-left:20px;
+}
+.el-select{
+  width: 100%;
+}
+
+.tree_style{
+  width:30%;float: left;border:1px solid #dfe6ec;min-height:500px;font-size:14px;overflow: auto;max-height:800px
+}
+.tree_style .el-input{
+  width: 100%;
+}
+.tree_style .el-tree{
+  width: 100%;padding:0 4%;
+}
+.panel-heading,.tree_style .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.tree_width{
+  width:15%
+}
+.table_60 {
+  width: 69%;
+  float: right;
+}
+.table_84{
+  width: 84%;
+  float: right;
+}
+.fieldset-dialog{
+  border:1px solid #dfe6ec;
+}
+
+div.fieldset-dialog{
+  padding: 0.35em 0.75em 0.625em;
+}
+.form-item label{
+  padding-left:20px;
+}
+.form-bottom{
+  margin-bottom:0px;
+}
+.form-bottom .el-form-item__label{
+  padding:0px!important;
+}
+.el-select{
+  width: 100%;
+}
+.form—record{
+  width: 100%;
+}
+.form—record .el-form-item__content{
+  width:80%
+}
+.right-menu-item .el-badge__content.is-fixed{
+  top:16px;
+}
+.right-menu-item .el-badge__content.is-fixed.is-dot{
+  right: 6px;
+}
+.option_left_span{
+  float: left
+}
+.option_right_span{
+  float: right;padding-right: 10px; color: #8492a6; font-size: 13px
+}
+.el-dialog__headerbtn{
+  font-size: 24px;
+  top:inherit;
+}
+
+
+.project-class-image img{
+  //width: 80%!important;
+  height: 100%!important;
+  //margin: 0 10%;
+}

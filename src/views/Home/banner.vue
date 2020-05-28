@@ -1,0 +1,54 @@
+<template>
+  <div>
+    <!-- START: Header Title -->
+    <div class="nk-header-title nk-header-title-lg">
+      <div class="bg-image">
+        <div :style="backgroundDiv" />
+        <!--<div class="bg-image-overlay" style="background-color: rgba(12, 12, 12, 0.6);" />-->
+      </div>
+      <div class="nk-header-table">
+        <div class="nk-header-table-cell">
+          <div class="container">
+            <div style="color:#ffffff;margin-top:30%;text-align: left" v-html="data.content" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <a class="nk-header-title-scroll-down text-white" href="#nk-header-title-scroll-down">
+          <i class="el-icon-arrow-down" />
+        </a>
+      </div>
+    </div>
+    <div id="nk-header-title-scroll-down" />
+  </div>
+</template>
+<script>
+import { list } from '@/api/banners'
+export default {
+  name: 'Banner',
+  data() {
+    return {
+      backgroundDiv: {
+        backgroundImage: '',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%'
+      },
+      data: {}
+    }
+  },
+  created() {
+    this.getBanner()
+  },
+  methods: {
+    async getBanner() {
+      this.data = (await list({})).data.rows[0]
+      this.backgroundDiv.backgroundImage = 'url(' + this.data.path + ')'
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+
