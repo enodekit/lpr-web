@@ -49,7 +49,8 @@ export default {
     return {
       listQuery: {
         limit: 20,
-        sort: '-_id'
+        sort: '-_id',
+        key: 'NEWARRIVALS'
       },
       productFrist: undefined,
       projects: undefined

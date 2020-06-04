@@ -12,19 +12,19 @@
       <div class="project_head">
         <i class="iconhuaban  iconcss iconfont project_icon"  />
         <div class="project_content">
-          PROFESSOMAN MANUFACTURER OEM ACCMPTTED
+          INTEGRITY MANAGEMENT QUALITY CONSTRUCTION
         </div>
       </div>
       <div class="project_head">
         <i class="iconcangchuwuliu iconcss iconfont project_icon" />
         <div class="project_content">
-          PROFESSOMAN MANUFACTURER OEM ACCMPTTED
+          SUFFICIENT INGREDIENT FAST DELIVERY
         </div>
       </div>
       <div class="project_head">
         <i class="icon7 iconcss iconfont project_icon"/>
         <div class="project_content">
-          PROFESSOMAN MANUFACTURER OEM ACCMPTTED
+          COURTEOUS SERVICE REST ASSURED PURCHASE
         </div>
       </div>
     </div>

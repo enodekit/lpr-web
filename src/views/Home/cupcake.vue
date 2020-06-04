@@ -35,7 +35,8 @@ export default {
     return {
       listQuery: {
         limit: 20,
-        sort: '-_id'
+        sort: '-_id',
+        key: 'CUPCAKE'
       },
       productFrist: undefined,
       projects: undefined

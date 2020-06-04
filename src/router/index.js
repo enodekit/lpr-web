@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // import homesRouter from './modules/homes'
 // import rostersRouter from './modules/rosters'
 // import searchsRouter from './modules/searchs'
-import projectsRouter from './modules/projects'
+// import projectsRouter from './modules/projects'
 // in development-env not use lazy-loading, because lazy-loading too many pages will cause webpack hot update too slow. so only in production use lazy-loading;
 // detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
 
@@ -62,22 +62,43 @@ export const constantRoutes = [
   },
 
   {
-    path: '/',
+    path: '',
     component: Layout,
     redirect: '/home',
     /** hidden: true,   //菜单栏隐藏**/
     children: [{
       path: 'home',
-      component: () => import('@/views/Home/index')
+      component: () => import('@/views/Home/index'),
+      name: 'Home',
+      meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
     }]
   },
   {
-    path: '/project',
+    path: '/projects',
     component: Layout,
+    redirect: '/projects',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: 'Project',
+      icon: 'settings'
+    },
     children: [
       {
-        path: '/project/:path*',
-        component: () => import('@/views/project/index')
+        path: 'list',
+        component: () => import('@/views/project/list'),
+        name: 'ProjectList',
+        meta: {
+          title: '产品', noRoles: true
+        }
+      },
+      {
+        path: 'show/:id',
+        hidden: true,
+        component: () => import('@/views/project'),
+        name: 'Project',
+        meta: {
+          title: '产品', noRoles: true
+        }
       }
     ]
   }
@@ -97,7 +118,7 @@ export const asyncRoutes = [
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

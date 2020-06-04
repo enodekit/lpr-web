@@ -8,7 +8,8 @@ const state = {
   },
   device: 'desktop',
   language: getLanguage(),
-  size: Cookies.get('size') || 'medium'
+  size: Cookies.get('size') || 'medium',
+  autoWriteConfig: Cookies.get('autoWriteConfig') === 'true'
 }
 
 const mutations = {
@@ -36,6 +37,11 @@ const mutations = {
   SET_SIZE: (state, size) => {
     state.size = size
     Cookies.set('size', size)
+  },
+  SET_AUTOWRITECONFIG: (state, value) => {
+    state.autoWriteConfig = value
+    console.log(state)
+    Cookies.set('autoWriteConfig', value)
   }
 }
 
@@ -54,6 +60,9 @@ const actions = {
   },
   setSize({ commit }, size) {
     commit('SET_SIZE', size)
+  },
+  setAutoWriteConfig({ commit }, value) {
+    commit('SET_AUTOWRITECONFIG', value)
   }
 }
 

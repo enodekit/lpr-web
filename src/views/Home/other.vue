@@ -17,7 +17,7 @@
                 <div class="portfolio-item-category">Visit</div>
               </div>
             </div>
-            <div style="margin:10px 10% 0 10%;border-radius:5px;padding:10px;text-align: center;background:#ffffff;color:#000000">{{ item.name }}</div>
+            <div style="margin:10px 10% 0 10%;border-radius:5px;padding:10px;text-align: center;background:#000000;color:#ffffff">{{ item.name }}</div>
           </div>
         </div>
       </div>
@@ -36,7 +36,8 @@ export default {
     return {
       listQuery: {
         limit: 20,
-        sort: '-_id'
+        sort: '-_id',
+        key: 'ACCESSORIES'
       },
       productFrist: undefined,
       projects: undefined
