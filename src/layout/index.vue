@@ -1,7 +1,6 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <div :class="{hasTagsView:needTagsView}" class="main-container">
+    <div :class="{hasTagsView:needTagsView}" class="main-container" style="margin-left:0px">
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
       </div>
@@ -40,8 +39,6 @@ export default {
     }),
     classObj() {
       return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }

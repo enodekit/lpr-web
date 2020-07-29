@@ -9,7 +9,7 @@
           <div class="nk-ibox-1">
             <div style="position:absolute;margin-top: 3px;">
               <!--<i class="el-icon-bank-card" />-->
-              <img src="../../assets/images/logo.jpg" alt="" width="49px">
+              <img src="@/assets/images/logo.jpg" alt="" width="49px">
             </div>
             <div class="nk-ibox-cont">
               <div class="nk-ibox-title" style="font-size:1em;line-height: 25px;">TONSIN OFFICIAL STORE</div>

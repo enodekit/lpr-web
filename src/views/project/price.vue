@@ -32,7 +32,7 @@
           </swiper-slide>
         </swiper>
       </div>
-      <div style="width: 65%;">
+      <div style="width: 65%;float: left">
         <div class="ma-title-wrap">
           <h1 style="display: inline;font-size: 16px;color: #333;line-height: 24px" title="Ruiqu Party Decoration Love Letter Cake Toppers Acrylic Gold Happy Birthday Cake Topper" data-spm-anchor-id="a2700.details.maonnacta.i0.412e5d27RrZddL">Ruiqu Party Decoration Love Letter Cake Toppers Acrylic Gold Happy Birthday Cake Topper</h1>
           <span id="detail-title-tags-after-title" class="promotion-title-tag pt-after" />
@@ -47,7 +47,6 @@
           </div>
         </div>
         <div class="key-attrs" />
-        <div class="transactions-content" style="display: inline-block;"><div data-reactroot="" class="transactions-review"><div class="review-conclusion"><div class="next-rating next-rating-small"><div class="next-rating-base next-rating-base-disabled"><div class="next-rating-underlay"><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span></div><div class="next-rating-overlay" style="width: 84px;"><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span><span class="next-rating-icon"><i class="next-icon next-icon-favorites-filling next-icon-xs" /></span></div></div></div><span class="next-form-text-align review-value">5.0</span><span class="next-form-text-align"><!-- react-text: 29 -->1<!-- /react-text --><!-- react-text: 30 --> <!-- /react-text --><!-- react-text: 31 -->Reviews<!-- /react-text --></span></div></div></div>
         <div class="ma-main">
           <div class="ma-fob-title">FOB <b>Reference</b> Price:<a id="J-get-last-price" class="ma-glp" data-domdot="id:3303,ext:is_xinbao_product=1|is_display_assurance=1" href="javascript:;" rel="nofollow">Get Latest Price</a></div>
           <div id="detail-banner" class="promotion-banner" />
@@ -57,10 +56,10 @@
                 <span>$0.10 - $0.20</span>
               </span>
               / Piece
-              <span class="ma-split">|</span>                                <span class="ma-min-order">100 Piece/Pieces</span> (Min. Order)
+              <span class="ma-split">|</span>
+              <span class="ma-min-order">100 Piece/Pieces</span> (Min. Order)
             </div>
           </div>
-
           <div id="detail-coupon" class="detail-coupon" /><div id="detail-coupon-banner" class="promotion-coupon-banner" />
           <div class="ma-brief-list">
             <div id="skuWrap">
@@ -80,18 +79,19 @@
               </dt>
               <dd class="do-entry-item-val" title="Lead Time">
                 <table class="supply-ability-table ui2-table ui2-table-normal ui2-table-zebra ui2-table-hover">
-                  <tbody><tr>
-                           <td>Quantity(Pieces)</td>
-                           <td>1 - 10000</td>
-                           <td>
-                             &gt;10000</td>
-                         </tr>
+                  <tbody>
+                    <tr>
+                      <td>Quantity(Pieces)</td>
+                      <td>1 - 10000</td>
+                      <td>10000</td>
+                    </tr>
                     <tr>
                       <td>Est. Time(days)</td>
                       <td>5</td>
                       <td>Negotiable</td>
                     </tr>
-                  </tbody></table>
+                  </tbody>
+                </table>
               </dd>
             </dl>
             <dl class="customize customize-list util-clearfix">
@@ -210,21 +210,21 @@ export default {
   .swiper-slide {
     background-size: cover;
     background-position: center;
-  &.slide-1 {
-     background-image:url('../../assets/images/2_02.png');
-   }
-  &.slide-2 {
-     background-image:url('../../assets/images/2_02.png');
-   }
-  &.slide-3 {
-     background-image:url('../../assets/images/2_02.png');
-   }
-  &.slide-4 {
-     background-image:url('../../assets/images/2_02.png');
-   }
-  &.slide-5 {
-     background-image:url('../../assets/images/2_02.png');
-   }
+    &.slide-1 {
+      background-image:url("../../assets/images/2_02.png");
+    }
+    &.slide-2 {
+      background-image:url("../../assets/images/2_02.png");
+    }
+    &.slide-3 {
+      background-image:url("../../assets/images/2_02.png");
+    }
+    &.slide-4 {
+      background-image:url("../../assets/images/2_02.png");
+    }
+    &.slide-5 {
+      background-image:url("../../assets/images/2_02.png");
+    }
   }
 
   &.gallery-top {
@@ -258,5 +258,10 @@ export default {
       top: -11px;
       left: 30px
     }
+  }
+  .widget-main-action .ma-price-wrap {
+    border-top: 1px solid #e6e7eb;
+    background-color: #fff;
+    padding: 0 18px;
   }
 </style>

@@ -4,13 +4,13 @@
     <div class="nk-gap-2 mt-5" />
     <div class="container" style="text-align: center;width:60%;margin:0 20%;">
       <div class="project_head">
-        <i class="icongongchang1  iconcss iconfont project_icon"  />
+        <i class="icongongchang1  iconcss iconfont project_icon" />
         <div class="project_content">
           PROFESSOMAN MANUFACTURER OEM ACCMPTTED
         </div>
       </div>
       <div class="project_head">
-        <i class="iconhuaban  iconcss iconfont project_icon"  />
+        <i class="iconhuaban  iconcss iconfont project_icon" />
         <div class="project_content">
           INTEGRITY MANAGEMENT QUALITY CONSTRUCTION
         </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="project_head">
-        <i class="icon7 iconcss iconfont project_icon"/>
+        <i class="icon7 iconcss iconfont project_icon" />
         <div class="project_content">
           COURTEOUS SERVICE REST ASSURED PURCHASE
         </div>

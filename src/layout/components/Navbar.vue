@@ -3,27 +3,28 @@
     <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-white-text-on-top nk-navbar-solid">
       <div class="container">
         <div class="nk-nav-table">
-          <a href="index.html" class="nk-nav-logo">
-            <img src="../../assets/images/logo.jpg" alt="" width="85">
+          <a href="/" class="nk-nav-logo">
+            <img src="../../assets/images/logo.jpg" alt="" width="45" style="margin:20px 0">
           </a>
-          <el-menu :default-active="activeIndex" class="el-menu-demo"  style="float:right;" mode="horizontal"><!--@select="handleSelect"-->
-            <el-menu-item index="1">Home</el-menu-item>
-            <!--<el-submenu index="2">-->
-              <!--<template slot="title"></template>-->
-              <!--<el-menu-item index="2-1">选项1</el-menu-item>-->
-              <!--<el-menu-item index="2-2">选项2</el-menu-item>-->
-              <!--<el-menu-item index="2-3">选项3</el-menu-item>-->
+          <el-menu :default-active="$route.path" router class="el-menu-demo" style="float:right;" mode="horizontal"><!--@select="handleSelect"-->
+            <el-menu-item index="/">Home</el-menu-item>
+            <el-submenu index="2">
+              <template slot="title">Products</template>
+              <div v-for="pc in productCs" :key="pc.value">
+                <el-menu-item v-if="pc.children===undefined" :index="resolvePath(pc.value)">{{ pc.label }}</el-menu-item>
+                <el-submenu v-if="pc.children!=undefined" index="2-2">
+                  <template slot="title">{{ pc.label }}</template>
+                  <el-menu-item v-for="child in pc.children" :key="child.value" :index="resolvePath(child.value)">{{ child.label }}</el-menu-item>
+                </el-submenu>
+              </div>
+            </el-submenu>
+            <!--<el-submenu index="3">-->
+            <!--<template slot="title">Company Profile</template>-->
+            <!--<el-menu-item index="3-1">选项1</el-menu-item>-->
+            <!--<el-menu-item index="3-2">选项2</el-menu-item>-->
+            <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
             <!--</el-submenu>-->
-            <!--<el-submenu index="3"  >-->
-              <!--<template slot="title">如何使用产品</template>-->
-              <!--<el-menu-item index="2-1">选项1</el-menu-item>-->
-              <!--<el-menu-item index="2-2">选项2</el-menu-item>-->
-              <!--<el-menu-item index="2-3">选项3</el-menu-item>-->
-            <!--</el-submenu>-->
-            <el-menu-item index="2">店铺</el-menu-item>
-            <!--<el-menu-item index="3">-->
-              <!--<a href="https://www.ele.me" target="_blank">公司介绍</a>-->
-            <!--</el-menu-item>-->
+            <el-menu-item index="4">Contacs</el-menu-item>
           </el-menu>
         </div>
       </div>
@@ -40,7 +41,7 @@ import { mapGetters } from 'vuex'
 // import SizeSelect from '@/components/SizeSelect'
 // import LangSelect from '@/components/LangSelect'
 // import Search from '@/components/HeaderSearch'
-
+import { list } from '@/api/productClasss'
 export default {
   components: {
     // Breadcrumb,
@@ -61,16 +62,57 @@ export default {
   },
   data() {
     return {
-      activeIndex: '1'
+      activeIndex: '1',
+      productCs: []
     }
+  },
+  created() {
+    this.getList()
   },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
+    getList() {
+      list({ status: true }).then(response => {
+        const datas = response.data.rows
+        const productC = []
+        datas.forEach(item => {
+          if (item.father === undefined || item.father == null) {
+            const v = this.recurTree(item)
+            if (v)productC.push(v)
+          }
+        })
+        this.productCs = productC
+        // console.log(this.productCs)
+      })
+    },
+    recurTree(data) { // 重新解析树,把空结尾的树枝去掉
+      if (data.children.length > 0) {
+        const t = []
+        let d = {}
+        d.value = data._id
+        d.label = data.name
+        data.children.forEach(item => {
+          const v = this.recurTree(item)
+          if (v)t.push(v)
+        })
+        if (t.length > 0) {
+          d.children = t
+        } else {
+          d = null
+        }
+        return d
+      } else {
+        return { label: data.name, value: data._id }
+      }
+    },
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    resolvePath(routePath) {
+      return '/products/' + routePath
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- START: Header Title -->
-    <div class="nk-header-title nk-header-title-lg">
+    <div class="nk-header-title nk-header-title-md">
       <div class="bg-image">
         <div :style="backgroundDiv" />
         <!--<div class="bg-image-overlay" style="background-color: rgba(12, 12, 12, 0.6);" />-->
@@ -9,7 +9,7 @@
       <div class="nk-header-table">
         <div class="nk-header-table-cell">
           <div class="container">
-            <div style="color:#ffffff;margin-top:30%;text-align: left" v-html="data.content" />
+            <div style="color:#ffffff;text-align: left" v-html="data.content" />
           </div>
         </div>
       </div>
@@ -31,7 +31,8 @@ export default {
       backgroundDiv: {
         backgroundImage: '',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 100%'
+        width: '100%',
+        height: '60vh'
       },
       data: {}
     }

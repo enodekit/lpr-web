@@ -56,6 +56,7 @@ router.beforeEach(async(to, from, next) => {
   // const accessRoutes = await store.dispatch('permission/generateRoutes', { roles, routers })
   // console.log(accessRoutes)
   // router.addRoutes(accessRoutes)
+
   if (whiteList.indexOf(to.path) !== -1) {
     // in the free login whitelist, go directly
     next()
