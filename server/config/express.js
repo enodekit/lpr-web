@@ -14,7 +14,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json')
-const routes = require('../routes/index.route')
+// const routes = require('../routes/index.route')
 const config = require('./config')
 const passport = require('./passport')
 const app = express()
@@ -79,8 +79,8 @@ app.use(passport.initialize())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // API router
-app.use('/api/', routes)
-app.use('/api-v1/', routes)
+// app.use('/api/', routes)
+// app.use('/api-v1/', routes)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
