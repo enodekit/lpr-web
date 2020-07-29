@@ -2,7 +2,7 @@ const Joi = require('joi')
 const path = require('path')
 const glob = require('glob')
 const _ = require('lodash')
-const defaultAssets = require(path.join(process.cwd(), 'server/config/assets.js'))
+const defaultAssets = require(path.join(process.cwd(), 'server/config/a   ssets.js'))
 
 // require and configure dotenv, will load vars in .env in PROCESS.ENV
 require('dotenv').config()

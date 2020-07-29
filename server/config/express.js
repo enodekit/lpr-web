@@ -16,7 +16,7 @@ const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json')
 // const routes = require('../routes/index.route')
 const config = require('./config')
-const passport = require('./passport')
+// const passport = require('./passport')
 const app = express()
 
 // console 打印
