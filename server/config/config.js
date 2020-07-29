@@ -102,14 +102,6 @@ const config = {
   mongooseDebug: envVars.MONGOOSE_DEBUG,
   jwtSecret: envVars.JWT_SECRET,
   frontend: envVars.MEAN_FRONTEND || 'vue',
-  mongo: {
-    host: envVars.MONGO_HOST,
-    port: envVars.MONGO_PORT,
-    options: {
-      user: envVars.MONGO_USERNAME || '',
-      pass: envVars.MONGO_PASSWORD || ''
-    }
-  },
   log: {
     // logging with Morgan - https://github.com/expressjs/morgan
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
