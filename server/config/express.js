@@ -73,7 +73,7 @@ app.use(cors({
   credentials: true // 是否带cookie
 }))
 
-app.use(passport.initialize())
+// app.use(passport.initialize())
 
 // api文档 未编写
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))

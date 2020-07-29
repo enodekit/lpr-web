@@ -8,7 +8,6 @@ const app = require('./config/express')
 const start = function() {
   if (!module.parent) {
     app.listen(config.port, () => {
-      console.info('Database:        ' + config.mongo.host)
       console.info(`项目启动,端口： ${config.port} (${config.env === 'development' ? '开发模式' : '成品模式'})`)
     })
   }
