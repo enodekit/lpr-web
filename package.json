@@ -87,7 +87,7 @@
     "screenfull": "4.2.0",
     "seneca": "^3.8.4",
     "seneca-amqp-transport": "^2.2.0",
-    "showdown": "1.9.0",
+    "showdown": "1.9.1",
     "sortablejs": "1.8.3",
     "swagger-ui-express": "^3.0.9",
     "swiper": "^5.4.2",
