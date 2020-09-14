@@ -13,3 +13,17 @@ export function getOne(id) {
     method: 'get'
   })
 }
+export function aggregate(query) {
+  return request({
+    url: `/products/aggregate`,
+    method: 'get',
+    params: query
+  })
+}
+export function tagCount(query) {
+  return request({
+    url: `/products/tag-count`,
+    method: 'get',
+    params: query
+  })
+}

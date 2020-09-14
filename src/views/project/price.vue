@@ -1,35 +1,17 @@
 <template>
   <!-- START: Portfolio -->
-  <div>
-    <div class="container" style="margin:0 15%;padding:16px 0px;">
+  <div style="background-color:#f2f3f7">
+    <div class="container" style="margin:0 15%;padding:16px 0px">
       <div class="thumb-example" style="width: 35%;float:left">
         <!-- swiper1 -->
         <swiper ref="swiperTop" class="swiper gallery-top" :options="swiperOptionTop">
-          <swiper-slide class="slide-1" />
-          <swiper-slide class="slide-2" />
-          <swiper-slide class="slide-3" />
-          <swiper-slide class="slide-4" />
-          <swiper-slide class="slide-5" />
-          <!--<div slot="button-next" class="swiper-button-next swiper-button-white" />-->
-          <!--<div slot="button-prev" class="swiper-button-prev swiper-button-white" />-->
-        </swiper>
+          <swiper-slide v-for="slide in swiperSlides" :key="slide" :style="slide">
+            <!--<div slot="button-next" class="swiper-button-next swiper-button-white" />-->
+            <!--<div slot="button-prev" class="swiper-button-prev swiper-button-white" />-->
+          </swiper-slide></swiper>
         <!-- swiper2 Thumbs -->
         <swiper ref="swiperThumbs" class="swiper gallery-thumbs" :options="swiperOptionThumbs">
-          <swiper-slide class="slide-1">
-            <span class="arrow" />
-          </swiper-slide>
-          <swiper-slide class="slide-2">
-            <span class="arrow" />
-          </swiper-slide>
-          <swiper-slide class="slide-3">
-            <span class="arrow" />
-          </swiper-slide>
-          <swiper-slide class="slide-4">
-            <span class="arrow" />
-          </swiper-slide>
-          <swiper-slide class="slide-5">
-            <span class="arrow" />
-          </swiper-slide>
+          <swiper-slide v-for="slide in swiperSlides" :key="slide" :style="slide" />
         </swiper>
       </div>
       <div style="width: 65%;float: left">
@@ -141,8 +123,16 @@
         </div>
       </div>
     </div>
+    <el-tabs v-model="activeName" type="card" style="margin:0 15%" @tab-click="handleClick">
+      <el-tab-pane label="Product Details" name="pd" style="background-color: #ffffff;">
+        <div v-html="project.content" />
+      </el-tab-pane>
+      <el-tab-pane label="Company Profile" name="cp" style="background-color: #ffffff">
+        <div v-html="project.company" />
+      </el-tab-pane>
+    </el-tabs>
+    <!-- END: Portfolio -->
   </div>
-  <!-- END: Portfolio -->
 </template>
 
 <script>
@@ -180,7 +170,9 @@ export default {
         status: true,
         isshow: true
       },
-      project: undefined
+      project: undefined,
+      swiperSlides: [],
+      activeName: 'pd'
     }
   },
   created() {
@@ -196,7 +188,12 @@ export default {
   },
   methods: {
     async getProductClass() {
-      this.project = await getOne(this.$route.params.id).data
+      this.project = (await getOne(this.$route.params.id)).data
+      console.log(this.project)
+      this.swiperSlides = []
+      this.project.imgs.forEach(item => {
+        this.swiperSlides.push('background-image:url("' + item + '")')
+      })
     }
   }
 }
@@ -210,21 +207,6 @@ export default {
   .swiper-slide {
     background-size: cover;
     background-position: center;
-    &.slide-1 {
-      background-image:url("../../assets/images/2_02.png");
-    }
-    &.slide-2 {
-      background-image:url("../../assets/images/2_02.png");
-    }
-    &.slide-3 {
-      background-image:url("../../assets/images/2_02.png");
-    }
-    &.slide-4 {
-      background-image:url("../../assets/images/2_02.png");
-    }
-    &.slide-5 {
-      background-image:url("../../assets/images/2_02.png");
-    }
   }
 
   &.gallery-top {
@@ -232,7 +214,7 @@ export default {
      width: 350px;
    }
   &.gallery-thumbs {
-     height: 70px;
+     height: 90px;
      width: 350px;
      box-sizing: border-box;
      padding: 10px 0;
