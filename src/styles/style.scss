@@ -96,3 +96,25 @@ div.fieldset-dialog{
   height: 100%!important;
   //margin: 0 10%;
 }
+.el-tabs__header{
+  margin:0px!important;
+  background-color: transparent!important;
+}
+.el-tabs--card>.el-tabs__header .el-tabs__item{
+  border: 1px solid #dfe4ed;
+  margin-right:20px;
+  background-color:#f4f4f4!important;
+  border-radius: 8px 8px 0 0!important;
+}
+.el-tabs--card>.el-tabs__header .el-tabs__item.is-active{
+  background-color:#ffffff!important
+}
+.el-tabs--card>.el-tabs__header .el-tabs__nav{
+  border:none!important;
+}
+.el-tabs__item{
+  height: 50px;
+  line-height: 50px;
+  font-size:16px;
+  padding: 0 30px;
+}
