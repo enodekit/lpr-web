@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- START: Header Title -->
     <div class="nk-header-title nk-header-title-md">
       <div class="bg-image">
         <div :style="backgroundDiv" />
@@ -13,13 +12,7 @@
           </div>
         </div>
       </div>
-      <div>
-        <a class="nk-header-title-scroll-down text-white" href="#nk-header-title-scroll-down">
-          <i class="el-icon-arrow-down" />
-        </a>
-      </div>
     </div>
-    <div id="nk-header-title-scroll-down" />
   </div>
 </template>
 <script>

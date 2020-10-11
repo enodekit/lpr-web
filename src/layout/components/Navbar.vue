@@ -1,12 +1,34 @@
 <template>
   <div class="nk-header">
     <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-white-text-on-top nk-navbar-solid">
-      <div class="container">
-        <div class="nk-nav-table">
-          <a href="/" class="nk-nav-logo">
-            <img src="../../assets/images/logo.jpg" alt="" width="45" style="margin:20px 0">
-          </a>
-          <el-menu :default-active="$route.path" router class="el-menu-demo" style="float:right;" mode="horizontal"><!--@select="handleSelect"-->
+      <div class="nk-nav-table">
+        <h2 style="font-family: 'Microsoft YaHei';text-align: center;padding:30px 0px 15px;font-size:2.8em">NINGBO TONSIN CRAFTS COMPANY LIMITED.</h2>
+      </div>
+      <div class="nk-nav-table_bottom">
+        <p class="nk-nav-table_bottom_p">
+          <i class="icondasha iconcss iconfont project_icon" />
+          Rich experience
+        </p>
+        <p class="nk-nav-table_bottom_p">
+          <i class="icondamuzhi iconcss iconfont project_icon" />
+          OEM/ODM Service
+        </p>
+        <p class="nk-nav-table_bottom_p">
+          <i class="iconxiaoshi iconcss iconfont project_icon" />
+          24-hours online service
+        </p>
+      </div>
+      <div style="clear: both;" />
+      <div style="background-color:#545c64">
+        <div style="width: 70%;margin:0 auto">
+          <el-menu
+            :default-active="$route.path"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+            router
+            mode="horizontal"
+          >
             <el-menu-item index="/">Home</el-menu-item>
             <el-submenu index="2">
               <template slot="title">Products</template>
@@ -18,13 +40,13 @@
                 </el-submenu>
               </div>
             </el-submenu>
-            <!--<el-submenu index="3">-->
-            <!--<template slot="title">Company Profile</template>-->
-            <!--<el-menu-item index="3-1">选项1</el-menu-item>-->
-            <!--<el-menu-item index="3-2">选项2</el-menu-item>-->
-            <!--<el-menu-item index="3-3">选项3</el-menu-item>-->
-            <!--</el-submenu>-->
-            <el-menu-item index="4">Contacs</el-menu-item>
+            <el-menu-item index="/">Company Profile</el-menu-item>
+            <el-menu-item index="/">Contacs</el-menu-item>
+            <el-menu-item index="/">Video</el-menu-item>
+            <el-menu-item index="/">Feeds</el-menu-item>
+            <div style="float:right;width: 20%;line-height:60px;" class="el-div-input">
+              <el-input slot="prepend" v-model="input" size="mini" prefix-icon="el-icon-search" placeholder="Please" />
+            </div>
           </el-menu>
         </div>
       </div>
@@ -199,5 +221,23 @@ export default {
       }
     }
   }
+}
+
+.nk-nav-table_bottom{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+.nk-nav-table_bottom_p{
+  width:33%;
+  float: left;
+  font-size: 18px;
+  font-weight: 400
+}
+.project_icon{
+  color:#bc6c6c;
+  font-weight: 400;
+  font-size:22px;
+  margin-right:5px
 }
 </style>
