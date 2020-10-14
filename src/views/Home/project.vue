@@ -36,15 +36,14 @@
                   <div class="portfolio-item-category">Visit</div>
                 </div>
               </div>
-              <div style="margin:0 10%;border-radius:5px;padding:10px;text-align: center;background:#ffffff;color:#000000">{{ item.name }}</div>
+              <div style="margin:0 10%;border-radius:5px;padding:10px;text-align: center;background:#ffffff;color:#000000" v-bind="priceSet(item.prices)" />
             </div>
           </div>
         </div>
       </div>
+      <div class="nk-gap-1 mt-15" />
     </div>
-    <div class="nk-gap-1 mt-15" />
-  </div>
-</template>
+  </div></template>
 
 <script>
 import { list } from '@/api/products'
@@ -74,6 +73,9 @@ export default {
     },
     showProject(row) {
       this.$router.push({ path: '/projects/show/' + row._id, query: {}})
+    },
+    priceSet(prices) {
+      return prices[0] + '-' + prices[prices.length - 1]
     }
   }
 }
