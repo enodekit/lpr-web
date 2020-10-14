@@ -8,7 +8,7 @@
         <div v-if="productFrist!==undefined" style="width:40%;float:left">
           <div class="nk-isotope-item" data-filter="Visit" style="width:100%">
             <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="overflow:hidden;" @click="showProject(productFrist)">
-              <el-image :src="productFrist.img" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%;min-eight: 400px;">
+              <el-image :src="productFrist.imgs[0]" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%;min-eight: 400px;">
                 <div slot="placeholder" class="image-slot">
                   loading<span class="dot">...</span>
                 </div>
@@ -26,7 +26,7 @@
         <div style="width:56%;float:left">
           <div v-for="item in projects" :key="item._id" class="nk-isotope-item" data-filter="Visit" style="width:33%">
             <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="overflow:hidden" @click="showProject(item)">
-              <el-image :src="item.img" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%">
+              <el-image :src="item.imgs[0]" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%">
                 <div slot="placeholder" class="image-slot">
                   loading<span class="dot">...</span>
                 </div>
