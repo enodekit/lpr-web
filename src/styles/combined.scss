@@ -6575,9 +6575,23 @@ a:hover>.nk-icon-search:after {
 .nk-portfolio-single .nk-portfolio-text p:last-of-type {
   margin-bottom:0
 }
-.nk-portfolio-images img {
-  width:100%;
-  height:auto
+//.nk-portfolio-images img {
+//  width:100%;
+//  height:auto
+//}
+
+.nk-portfolio-images{
+  position: relative;
+  width: 100%;
+  height: 0px;
+  padding-top: 100%;
+}
+.nk-portfolio-images img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .nk-portfolio-single-header {
   display:table;

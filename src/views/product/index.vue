@@ -1,5 +1,5 @@
 <template>
-  <div class="nk-main" style="margin-top:105px;">
+  <div class="nk-main" style="margin-top:214px;">
     <banner-vue />
     <content-vue />
   </div>

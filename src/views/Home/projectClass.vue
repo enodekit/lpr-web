@@ -33,7 +33,7 @@
       <div class="nk-portfolio-list nk-isotope nk-isotope-4-cols">
         <div v-for="item in projects" :key="item._id" class="nk-isotope-item" data-filter="Visit">
           <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="overflow:hidden">
-            <el-image :src="item.imgs[0]" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%;max-height: 400px;">
+            <el-image :src="item.img" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%;max-height: 400px;">
               <div slot="placeholder" class="image-slot">
                 loading<span class="dot">...</span>
               </div>
@@ -65,8 +65,7 @@ export default {
       listQuery: {
         limit: 20,
         sort: '-_id',
-        status: true,
-        isshow: true
+        status: true
       },
       projects: undefined
     }

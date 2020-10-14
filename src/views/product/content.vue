@@ -1,6 +1,6 @@
 <template>
   <div id="cupcake" class="nk-box bg-white">
-    <div class="container">
+    <div style="margin:20px 10%">
       <div class="row">
         <div class="col-md-3">
           <div class="category-sidebar">
@@ -60,10 +60,10 @@
                 <div class="product-item bg-light">
                   <div class="card">
                     <div class="thumb-content">
-                      <el-image class="card-img-top img-fluid" :src="data.img" :alt="data.name" />
+                      <el-image class="card-img-top img-fluid" :src="data.imgs[0]" :alt="data.name" />
                     </div>
                     <div class="card-body">
-                      <h4 class="card-title"><a href="">{{ data.name }}</a></h4>
+                      <h4 class="card-title p_line_3"><a href="">{{ data.name }}</a></h4>
                       <ul v-if="data.price!==undefined" class="list-inline product-meta">
                         <li class="list-inline-item" style="color:red">
                           <span>$</span>
@@ -114,7 +114,7 @@ export default {
   data() {
     return {
       listQuery: {
-        limit: 20,
+        limit: 18,
         page: 1,
         sort: '-_id'
       },

@@ -3,9 +3,21 @@
     <div class="nk-gap-1 mt-5" />
     <h2 class="text-xs-center display-4">NEW ARRIVALS</h2>
     <div class="nk-gap-1 mt-12" />
+    <div style="margin:0px 11% 5px ;text-align: right">
+      <i
+        class="el-icon-arrow-left"
+        style="border:1px solid #6d6d6d;background-color: #ffffff;font-size:25px"
+        @click="prev"
+      />
+      <i
+        class="el-icon-arrow-right"
+        style="border:1px solid #6d6d6d;background-color: #ffffff;font-size:25px"
+        @click="next"
+      />
+    </div>
     <div style="margin:0 10%">
       <div class="nk-portfolio-list nk-isotope nk-isotope-4-cols">
-        <div v-for="item in projects" :key="item._id" class="nk-isotope-item" data-filter="Visit" style="width:33%">
+        <div v-for="item in projects" :key="item._id" class="nk-isotope-item" data-filter="Visit" style="width:33%;margin-bottom:5px">
           <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="overflow:hidden">
             <el-image :src="item.imgs[0]" fit="fill" class="nk-portfolio-images project-class-image" style="height: 100%;max-height: 400px;">
               <div slot="placeholder" class="image-slot">
@@ -13,12 +25,12 @@
               </div>
             </el-image>
             <div style="width: 100%;">
-              <el-image :src="item.imgs[1]" fit="fill" class="nk-portfolio-images project-class-image" style="height: 49%;width: 49%;max-width: 250px;max-height: 250px;float: left">
+              <el-image :src="item.imgs[1]" fit="fill" class="nk-portfolio-images project-class-image small-image-50" style="height: 49%;width: 49%;max-width: 250px;max-height: 250px;float: left">
                 <div slot="placeholder" class="image-slot">
                   loading<span class="dot">...</span>
                 </div>
               </el-image>
-              <el-image :src="item.imgs[2]" fit="fill" class="nk-portfolio-images project-class-image" style="height: 49%;width: 49%;max-width: 250px;max-height: 250px;float: right">
+              <el-image :src="item.imgs[2]" fit="fill" class="nk-portfolio-images project-class-image small-image-50" style="height: 49%;width: 49%;max-width: 250px;max-height: 250px;float: right">
                 <div slot="placeholder" class="image-slot">
                   loading<span class="dot">...</span>
                 </div>
@@ -30,7 +42,7 @@
               </div>
             </div>
             <div style="clear: both;" />
-            <div style="margin:10px 10% 0 10%;border-radius:5px;padding:10px;text-align: center;background:#ffffff;color:#000000">{{ item.name }}</div>
+            <div style="padding:10px;background:#ffffff;color:#000000">{{ item.name }}</div>
           </div>
         </div>
       </div>
@@ -48,7 +60,8 @@ export default {
   data() {
     return {
       listQuery: {
-        limit: 20,
+        page: 1,
+        limit: 9,
         sort: '-_id',
         key: 'NEWARRIVALS'
       },
@@ -62,6 +75,14 @@ export default {
   methods: {
     async getProduct() {
       this.projects = (await list(this.listQuery)).data.rows
+    },
+    prev() {
+      this.listQuery.page--
+      this.getProduct()
+    },
+    next() {
+      this.listQuery.page++
+      this.getProduct()
     }
   }
 }

@@ -32,9 +32,9 @@
             <el-menu-item index="/">Home</el-menu-item>
             <el-submenu index="2">
               <template slot="title">Products</template>
-              <div v-for="pc in productCs" :key="pc.value">
+              <div v-for="(pc,index) in productCs" :key="pc.value">
                 <el-menu-item v-if="pc.children===undefined" :index="resolvePath(pc.value)">{{ pc.label }}</el-menu-item>
-                <el-submenu v-if="pc.children!=undefined" index="2-2">
+                <el-submenu v-if="pc.children!==undefined" :index="`2-`+index">
                   <template slot="title">{{ pc.label }}</template>
                   <el-menu-item v-for="child in pc.children" :key="child.value" :index="resolvePath(child.value)">{{ child.label }}</el-menu-item>
                 </el-submenu>

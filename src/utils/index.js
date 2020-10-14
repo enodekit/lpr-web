@@ -361,3 +361,21 @@ export function parseInterval(str) {
     return data
   }
 }
+
+export function cutStr(number, str, format = '') {
+  var str1 = str
+  var num = 0
+  if (str1 === undefined || str1 === null || str1 === '') {
+    return str
+  }
+  for (var i = 0, lens = str1.length; i < lens; i++) {
+    num += ((str1.charCodeAt(i) > 255) ? 2 : 1)
+    if (num > number * 2) {
+      str = str1.substring(0, i - 1) + format
+      break
+    } else {
+      str = str1.substring(0, i + 1)
+    }
+  }
+  return str
+}
